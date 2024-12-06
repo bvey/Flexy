@@ -1,4 +1,4 @@
-import SummaryCard from './SummaryCard.twig';
+import SummaryCard from './SummaryCard.html.twig';
 
 export default {
   title: 'Design System/Organisms/SummaryCard'
@@ -7,7 +7,10 @@ export default {
 export const base = {
   render: (args) => `<div class='w-[334px]''>${SummaryCard(args)}</div>`,
   args: {
-    cgv: true,
+    cgvLink: '#',
+    nbArticles: 2,
+    subTotal: '2 150,00€',
+    total: '2 000,00€',
     promo: {
       code: '50JUIL23',
       reduction: '-50€'
@@ -15,7 +18,9 @@ export const base = {
     giftCard: {
       code: '4781 6931 567',
       reduction: '-100€'
-    }
+    },
+    noGiftCard: false,
+    noPromo: false
   },
   parameters: {
     backgrounds: { default: 'grey' }

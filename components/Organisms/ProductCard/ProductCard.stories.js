@@ -1,9 +1,9 @@
-import Standard from './Standard.twig';
-import Search from './Search.twig';
-import Order from './Order.twig';
-import PurchaseFunnel from './PurchaseFunnel.twig';
-import AddToCartConfirmation from './AddToCartConfirmation.twig';
-import RemoveProduct from './RemoveProduct.twig';
+import Standard from './Standard.html.twig';
+import Search from './Search.html.twig';
+import Order from './Order.html.twig';
+import PurchaseFunnel from './PurchaseFunnel.html.twig';
+import AddToCartConfirmation from './AddToCartConfirmation.html.twig';
+import RemoveProduct from './RemoveProduct.html.twig';
 import progressBar from './RemoveProduct.js';
 
 export default {
@@ -11,7 +11,8 @@ export default {
 };
 
 export const standard = {
-  render: (args) => Standard(args),
+  render: (args) =>
+    `<div class='max-w-[187px] sm:max-w-[340px] lg:max-w-[400px]'>${Standard(args)}</div>`,
   args: {
     productTitle: 'Nom du produit',
     secondaryTitle: 'Titre secondaire',
@@ -93,7 +94,14 @@ export const addToCartConfirmation = {
     productTitle: 'Nom du produit',
     orderSecondaryTitle: 'Titre secondaire',
     size: 'S-34/36',
-    quantity: 1
+    quantity: 1,
+    attributesAv: {
+      Taille: '34'
+    },
+    attributesAvColor: {
+      name: 'Slate Blue',
+      hexa: '#6969B3'
+    }
   }
 };
 

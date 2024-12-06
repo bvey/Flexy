@@ -12,8 +12,9 @@
   font-family: var(--font-family-button-medium);
   font-weight: var(--font-weight-button-medium);
 
+  text-decoration: none;
+
   & > span.icon {
-    color: var(--white);
     @apply w-5 h-5;
     &-left {
       padding-right: rem-convert(6px);
@@ -51,7 +52,7 @@
       background: var(--grey-dark);
     }
   }
-  &:focus {
+  &:focus-visible, &:has(:focus-visible) {
     outline: var(--theme-medium) solid 2px;
   }
   &:disabled {
@@ -72,7 +73,7 @@
         color: var(--white);
       }
     }
-    &:focus {
+    &:focus-visible, &:has(:focus-visible){
       background: var(--white);
       border: transparent solid 1px;
       &:hover {
@@ -93,14 +94,13 @@
   }
 
   &--minimal {
-    background: var(--white);
+    background: none;
     color: var(--black);
     span {
       color: var(--black);
     }
     &:hover:not(:disabled) {
       color: var(--grey);
-      background: var(--white);
       span{
         color: var(--grey);
       }
@@ -123,7 +123,7 @@
     &:hover:not(:focus):not(:disabled) {
       background: var(--error-light);
     }
-    &:focus {
+    &:focus-visible, &:has(:focus-visible){
       outline: var(--error-dark) solid 2px;
     }
     &:disabled {
@@ -146,6 +146,9 @@
 
   &--rectangle {
     border-radius: rem-convert(7px);
+  }
+  &--sharp {
+    border-radius:0;
   }
 }
 
@@ -239,8 +242,17 @@
     height: rem-convert(40px);
 
     & > span {
-      color: var(--white);
       @apply w-4 h-4;
+    }
+  }
+
+  & > span.icon {
+    @apply w-5 h-5;
+    &-left {
+      padding-right: 0;
+    }
+    &-right {
+      padding-left: 0;
     }
   }
 }

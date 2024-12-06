@@ -1,6 +1,6 @@
 .PickupPoint {
-  background: var(--theme-lightest);
-  border: 1px solid var(--theme-lightest);
+  background: var(--theme-lighter);
+  border: 1px solid var(--theme-lighter);
   border-radius: rem-convert(8px);
   padding: rem-convert(16px);
 
@@ -8,7 +8,7 @@
     background: var(--white);
     border: 1px solid var(--theme-medium);
   }
-  label  {
+  label {
     cursor: pointer;
   }
   &-content {
@@ -23,17 +23,15 @@
     .Radio {
       margin-top: 4px;
       margin-right: 8px;
-      visibility: hidden;
       max-width: 0;
       @screen md {
-        visibility: visible;
         max-width: initial;
       }
     }
   }
 
-
-  &-hoursListing, &-bottom {
+  &-hoursListing,
+  &-bottom {
     @screen md {
       margin-left: rem-convert(22px);
     }
@@ -51,21 +49,11 @@
   }
   &-hoursListing {
     margin-top: rem-convert(16px);
-    padding-top:  rem-convert(16px);
+    padding-top: rem-convert(16px);
     border-top: 1px solid var(--grey-lighter);
     @apply paragraph-4;
     td:first-child {
       padding-right: rem-convert(40px);
-    }
-  }
-  &-hours {
-    display: flex;
-    gap: rem-convert(6px);
-    align-items: center;
-    text-decoration: underline;
-    svg {
-      width: rem-convert(18px);
-      height: rem-convert(18px);
     }
   }
   &-title {
@@ -78,7 +66,8 @@
     font-weight: 400;
     color: var(--grey);
   }
-  &-opening, &-address {
+  &-opening,
+  &-address {
     padding-top: rem-convert(13px);
     @apply paragraph-4;
     font-weight: 400;
@@ -99,5 +88,17 @@
     &.closed:before {
       background: var(--error-dark);
     }
+  }
+}
+
+.PickupPointDrawer {
+  &-title {
+    @apply h4;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: rem-convert(16px);
+  }
+  &-address {
+    @apply paragraph-2;
   }
 }

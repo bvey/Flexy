@@ -1,0 +1,122 @@
+.MobileDrawer {
+  @apply transition-transform translate-y-full;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-left: rem-convert(40px);
+  padding-right: rem-convert(40px);
+  background: var(--white);
+  padding-top: rem-convert(50px);
+  padding-bottom: rem-convert(42px);
+  border-radius: rem-convert(20px) rem-convert(20px) 0px 0px;
+  z-index: 20;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: rem-convert(16px);
+    left: calc(50% - 21px);
+    height: rem-convert(5px);
+    width: rem-convert(42px);
+    border-radius: rem-convert(50px);
+    background-color: var(--grey);
+  }
+
+  &-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: rem-convert(10px);
+  }
+  &-close {
+    width: rem-convert(38px);
+    height: rem-convert(38px);
+  }
+  &-show {
+    @apply translate-y-0;
+  }
+
+  /* Navigation au clavier */
+  &:has(label:focus) {
+    @apply translate-y-0;
+  }
+
+  &-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--grey);
+    mix-blend-mode: multiply;
+    z-index: 10;
+  }
+
+  &--reset-sm {
+    @screen sm {
+      all: revert;
+
+      &:before {
+        content: none;
+      }
+      .MobileDrawer-header {
+        display: none;
+      }
+      & + .MobileDrawer-overlay {
+        display: none;
+      }
+    }
+  }
+  &--reset-md {
+    @screen md {
+      all: revert;
+
+      &:before {
+        content: none;
+      }
+      .MobileDrawer-header {
+        display: none;
+      }
+      & + .MobileDrawer-overlay {
+        display: none;
+      }
+    }
+  }
+
+  &--reset-lg {
+    @screen lg {
+      all: revert;
+
+      &:before {
+        content: none;
+      }
+
+      .MobileDrawer-header {
+        display: none;
+      }
+      & + .MobileDrawer-overlay {
+        display: none;
+      }
+    }
+  }
+
+  &--reset-xl {
+    @screen xl {
+      all: revert;
+
+      &:before {
+        content: none;
+      }
+
+      .MobileDrawer-header {
+        display: none;
+      }
+
+      & + .MobileDrawer-overlay {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import SelfPromotion from './SelfPromotion.twig';
+import SelfPromotion from './SelfPromotion.html.twig';
 
 export default {
   title: 'Design System/Organisms/Card/SelfPromotion'
@@ -7,8 +7,8 @@ export default {
 export const Base = {
   render: (args) => SelfPromotion(args),
   args: {
-    img: { url: '', alt: '' },
-    title: "Ici un texte d’autopromotion",
-    desc: "Accompagné d’un texte secondaire à cet endroit",
+    img: { url: '/images/placeholder2.webp', alt: '' },
+    title: 'Ici un texte d’autopromotion',
+    desc: 'Accompagné d’un texte secondaire à cet endroit'
   }
 };

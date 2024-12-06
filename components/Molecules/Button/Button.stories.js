@@ -1,6 +1,7 @@
-import Compact from './Classic.twig';
-import Quantities from './Quantities.twig';
-import Rounds from './Rounds.twig';
+import Compact from './Classic.html.twig';
+import Quantities from './Quantities.html.twig';
+import Rounds from './Rounds.html.twig';
+import { quantityButton } from './button';
 
 export default {
   title: 'Design System/Molecules/Button'
@@ -16,8 +17,11 @@ export const classic = {
     variant: 'primary',
     fill: false,
     rectangle: false,
+    sharp: false,
     icon_left: 'none',
-    icon_right: 'none'
+    icon_right: 'none',
+    name: '',
+    onClick: {},
   },
   argTypes: {
     variant: {
@@ -37,25 +41,17 @@ export const classic = {
     },
     rectangle: {
       control: { type: 'boolean' }
+    },
+    href: {
+      control: { type: 'text' }
     }
   }
 };
 
 export const quantity = {
   render: () => Quantities(),
-  play: ({ canvasElement }) => {
-    const minusButtons = canvasElement.querySelectorAll(
-      'button[data-qty="minus"]'
-    );
-    const plusButtons = canvasElement.querySelectorAll(
-      'button[data-qty="plus"]'
-    );
-    minusButtons.forEach((minus) => {
-      minus.addEventListener('click', (e) => plusMinusInput(minus, true));
-    });
-    plusButtons.forEach((plus) => {
-      plus.addEventListener('click', () => plusMinusInput(plus));
-    });
+  play: () => {
+    quantityButton();
   }
 };
 
@@ -76,13 +72,3 @@ export const rounds = {
     }
   }
 };
-
-function plusMinusInput(el, minus = false) {
-  const input = el.parentElement.querySelector('input');
-  const value = parseInt(input.value);
-  if (minus) {
-    input.value = (value - 1).toString();
-    return;
-  }
-  input.value = (value + 1).toString();
-}

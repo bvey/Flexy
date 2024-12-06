@@ -6,15 +6,29 @@
   align-items: center;
   color: var(--grey-dark);
   border: 1.5px solid var(--theme-light);
+  cursor: pointer;
 
+  &:hover {
+    background-color: var(--theme-lightest);
+  }
   &--withIcon {
     padding: rem-convert(8px) rem-convert(10px) rem-convert(8px)
       rem-convert(4px);
   }
 
-  &--selected {
+  &-iconClose {
+    width: rem-convert(20px);
+    height: rem-convert(20px);
+    display: none;
+    margin-left: rem-convert(4px);
+  }
+
+  &:has(:checked) {
     background-color: var(--theme-light);
     border: 1.5px solid var(--theme-medium);
+    .FilterPill-iconClose {
+      display: inline-block;
+    }
   }
 
   &-icon {
@@ -22,24 +36,31 @@
     height: rem-convert(21px);
     display: inline-block;
     margin-right: rem-convert(4px);
-    color: var(--grey-dark);
   }
 
-  &-iconClose {
-    width: rem-convert(21px);
-    height: rem-convert(21px);
-    display: inline-block;
-    margin-left: rem-convert(4px);
-  }
-
-  &[disabled] {
+  &:has(:disabled) {
     border-color: var(--grey-lighter);
     color: var(--grey-lighter);
     cursor: not-allowed;
     background-color: var(--grey-lightest);
 
     .FilterPill-icon {
-      color: var(--grey-lighter);
+      opacity: 0.2;
+    }
+  }
+
+  &--drawer {
+    @media screen and (max-width: theme('screens.sm')) {
+      border: none;
+      width: 100%;
+      padding: 14px 0;
+      background-color: transparent;
+
+      &:hover,
+      &:has(:checked) {
+        border: none;
+        background: transparent;
+      }
     }
   }
 }

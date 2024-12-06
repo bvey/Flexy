@@ -15,6 +15,7 @@
 
   &-help {
     width: rem-convert(18px);
+    width: rem-convert(18px);
     height: rem-convert(18px);
     color: var(--black);
   }
@@ -31,12 +32,13 @@
     width: 100%;
     padding: rem-convert(16px) rem-convert(10px);
     transition: 0.2s ease all;
+    text-overflow: ellipsis;
 
     &:hover {
       background-color: var(--theme-lightest);
     }
 
-    &:focus {
+    &:focus-visible {
       outline-offset: 2px;
       outline: 1px solid var(--theme);
     }
@@ -47,6 +49,11 @@
 
     &--unit {
       padding-right: rem-convert(50px);
+    }
+    &--verificationCode {
+      font-size: rem-convert(18px);
+      text-align: center;
+      height: 59px;
     }
   }
 
@@ -86,7 +93,7 @@
         background-color: var(--error-lightest);
       }
 
-      &:focus {
+      &:focus-visible {
         outline: 1px solid var(--error-dark);
       }
     }
@@ -140,13 +147,43 @@
 
   &-button {
     position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    display: flex;
+    align-items: stretch;
+  }
+
+  &-buttonIcon {
+    position: absolute;
     top: 50%;
-    right: 4px;
+    right: 10px;
     transform: translateY(-50%);
+    width: rem-convert(20px);
+    height: rem-convert(20px);
   }
 
   ::placeholder {
     color: var(--grey-dark);
     font-style: italic;
+  }
+
+  &-blockInputIconLeft {
+    .FieldInput-buttonIcon {
+      right: 0;
+      left: 10px;
+    }
+    .FieldInput-input {
+      padding-left: rem-convert(40px);
+    }
+  }
+
+  &-blockInputIconRight {
+    .FieldInput-buttonIcon {
+      right: 10px;
+    }
+    .FieldInput-input {
+      padding-right: rem-convert(40px);
+    }
   }
 }

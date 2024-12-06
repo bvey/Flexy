@@ -1,5 +1,5 @@
-import FieldInput from './FieldInput.twig';
-import fieldInputFunction from './FieldInput.js';
+import FieldInput from './FieldInput.html.twig';
+import FieldInputFunction from './FieldInput.js';
 
 export default {
   title: 'Design System/Molecules/Fields/FieldInput'
@@ -8,24 +8,26 @@ export default {
 export const Base = {
   render: (args) => FieldInput(args),
   play: () => {
-    fieldInputFunction()
+    FieldInputFunction();
   },
   args: {
-    name: "indication",
-    type: "",
-    label: "Indication",
-    placeholder: "Ex. Nom",
-    min: "",
-    max: "",
-    error: "",
-    unit: "",
-    tooltip: "",
+    name: 'indication',
+    type: '',
+    label: 'Indication',
+    placeholder: 'Ex. Nom',
+    iconButtonLeft: false,
+    min: '',
+    max: '',
+    error: '',
+    unit: '',
+    tooltip: '',
+    iconButton: ''
   },
   argTypes: {
     disabled: {
       control: { type: 'boolean' }
     },
-    required: {
+    optional: {
       control: { type: 'boolean' }
     },
     success: {
@@ -33,7 +35,7 @@ export const Base = {
     },
     size: {
       options: ['large', 'small'],
-      control: { type: 'select' },
+      control: { type: 'select' }
     }
   }
 };
@@ -41,24 +43,24 @@ export const Base = {
 export const WithButton = {
   render: (args) => FieldInput(args),
   play: () => {
-    fieldInputFunction()
+    fieldInputFunction();
   },
   args: {
-    name: "promoCode",
-    type: "text",
-    label: "",
-    placeholder: "Code Promo",
-    min: "",
-    max: "",
-    error: "",
-    tooltip: "",
-    button: "Appliquer"
+    name: 'promoCode',
+    type: 'text',
+    label: '',
+    placeholder: 'Code Promo',
+    min: '',
+    max: '',
+    error: '',
+    tooltip: '',
+    button: 'Appliquer'
   },
   argTypes: {
     disabled: {
       control: { type: 'boolean' }
     },
-    required: {
+    optional: {
       control: { type: 'boolean' }
     },
     success: {
@@ -66,7 +68,7 @@ export const WithButton = {
     },
     size: {
       options: ['large', 'small'],
-      control: { type: 'select' },
+      control: { type: 'select' }
     }
   }
 };

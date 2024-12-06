@@ -1,4 +1,4 @@
-import SnackBar from './SnackBar.twig';
+import SnackBar from './SnackBar.html.twig';
 
 export default {
   title: 'Design System/Organisms/SnackBar'
@@ -7,7 +7,7 @@ export default {
 export const base = {
   render: (args) => SnackBar(args),
   args: {
-    size:  'small',
+    size: 'small',
     variant: 'error',
     button: 'Bouton',
     text: 'Ici un message d’erreur pour aider l’utilisateur à corriger son erreur.',
@@ -15,12 +15,19 @@ export const base = {
   },
   argTypes: {
     size: {
-      options: ['small', 'large'],
+      options: ['small', 'large', 'full'],
       control: { type: 'radio' }
     },
     variant: {
-      options: ['error', 'warning', 'validated', 'informative', 'neutral-light', 'neutral-dark'],
+      options: [
+        'error',
+        'warning',
+        'validated',
+        'informative',
+        'neutral-light',
+        'neutral-dark'
+      ],
       control: { type: 'radio' }
-    },
+    }
   }
 };

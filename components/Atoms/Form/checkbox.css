@@ -1,6 +1,7 @@
-.Checkbox, .Radio {
+.Checkbox,
+.Radio {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   cursor: pointer;
   gap: 0.5rem;
@@ -18,7 +19,7 @@
     height: 0;
     width: 0;
 
-    &:focus {
+    &:focus-visible {
       & ~ .checkmark {
         outline: var(--checkbox-focus) solid 1px;
         outline-offset: 1px;
@@ -26,17 +27,18 @@
     }
   }
   .checkmark {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     background: var(--white);
     border: 1px solid var(--current-checkbox-color);
     border-radius: 2px;
     position: relative;
+    flex-shrink: 0;
     span {
       display: none;
     }
   }
-  input:disabled  ~ .checkmark {
+  input:disabled ~ .checkmark {
     border: 1px solid var(--current-checkbox-disabled);
   }
 
@@ -58,7 +60,7 @@
     &:indeterminate {
       ~ .checkmark {
         &:after {
-          content: "";
+          content: '';
           position: absolute;
           width: 8px;
           height: 2px;
@@ -103,13 +105,13 @@
   input {
     &:checked {
       & ~ .checkmark:after {
-        content: "";
+        content: '';
         position: absolute;
         border-radius: 555rem;
-        top:2px;
-        bottom:2px;
-        left:2px;
-        right:2px;
+        top: 2px;
+        bottom: 2px;
+        left: 2px;
+        right: 2px;
         background-color: var(--current-checkbox-color);
       }
     }

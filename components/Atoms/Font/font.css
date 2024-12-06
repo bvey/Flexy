@@ -138,7 +138,7 @@
   }
 }
 
-a {
+body a {
   text-decoration: underline;
 }
 
@@ -169,5 +169,9 @@ a {
   &-small {
     font-size: var(--font-size-indication-small);
     letter-spacing: var(--letter-spacing-indication-small);
+  }
+
+  &-lower {
+    text-transform: lowercase;
   }
 }
